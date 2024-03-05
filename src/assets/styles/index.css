@@ -473,6 +473,10 @@ li {
   align-items: center;
   justify-content: center;
   gap: 35px;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
 }
 .nav .nav-elements li {
   color: black;
