@@ -320,6 +320,10 @@ li {
   list-style: none;
 }
 
+body {
+  overflow-x: hidden;
+}
+
 @font-face {
   font-display: "swap";
   font-family: "Poppins";
@@ -440,9 +444,14 @@ li {
   display: flex;
   align-items: center;
   justify-content: center;
-  padding-top: 50px;
-  padding-bottom: 50px;
+  padding-top: 30px;
+  padding-bottom: 30px;
   gap: 200px;
+  box-shadow: 0px 3px 10px 1px #999999;
+  position: -webkit-sticky;
+  position: sticky;
+  top: 0;
+  background-color: white;
 }
 .nav .icon {
   font-size: 50px;
@@ -477,6 +486,9 @@ li {
      -moz-user-select: none;
       -ms-user-select: none;
           user-select: none;
+}
+.nav .nav-elements a {
+  text-decoration: none;
 }
 .nav .nav-elements li {
   color: black;
@@ -541,4 +553,26 @@ li {
      -moz-user-select: none;
       -ms-user-select: none;
           user-select: none;
+}
+
+@media screen and (max-width: 1200px) {
+  .nav {
+    gap: 70px;
+  }
+}
+@media screen and (max-width: 915px) {
+  .nav .nav-elements {
+    gap: 25px;
+  }
+}
+@media screen and (max-width: 900px) {
+  .nav {
+    flex-flow: column;
+    gap: 20px;
+  }
+}
+.products {
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }

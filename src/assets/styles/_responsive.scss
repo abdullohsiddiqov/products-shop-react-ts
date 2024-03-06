@@ -1,0 +1,19 @@
+@media screen and (max-width: 1200px) {
+    .nav{ 
+        gap: 70px;
+    }
+}
+@media screen and (max-width: 915px) {  
+    .nav{ 
+        .nav-elements{ 
+            gap: 25px;
+        }
+    }
+}
+
+@media screen and (max-width: 900px) { 
+    .nav{ 
+        flex-flow: column;
+        gap: 20px;
+    }
+}

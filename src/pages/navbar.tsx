@@ -16,15 +16,21 @@ export const Navbar: React.FC = () => {
             </div>
             </Link>
                 <ul className='nav-elements'>
+                    <Link to='/page/products/list'>
                     <li>
                         Products
                     </li>
+                    </Link>
+                    <Link to='/page/about-us'>
                     <li>
                         About us
                     </li>
+                    </Link>
+                    <Link to='/page/popular/list'>
                     <li>
                         Popular
                     </li>
+                    </Link>
                 </ul>
            <ul className="nav-icons">
                 <div className="flex">

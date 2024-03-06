@@ -9,7 +9,7 @@ export namespace IEntity {
     export interface IFile {
         file: File;
     }
-    export interface Products {
+    export interface Product {
         id: number;
         title: string;
         description: string;
