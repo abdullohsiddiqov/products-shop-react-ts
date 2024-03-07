@@ -1,7 +1,7 @@
-import { IEntity } from "../types/types";
+import { UserSignIn } from "../types/types";
 import { http } from "./http";
 
-export const signIn = async (data: IEntity.UserSignIn) => {
+export const signIn = async (data: UserSignIn) => {
   try {
     const response = await http.post('/api/v1/users/', data);
     

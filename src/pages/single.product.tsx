@@ -1,15 +1,15 @@
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import axios from 'axios';
-import { IEntity } from '../services/types/types';
+import { Product } from '../services/types/types';
 
 const SingleProduct: React.FC = () => {
     const { id } = useParams<{ id: string }>();
-    const [product, setProduct] = useState<IEntity.Product | null>(null);
+    const [product, setProduct] = useState<Product | null>(null);
 
     const fetchProduct = async () => {
         try {
-            const response = await axios.get<IEntity.Product>(`https://dummyjson.com/products/${id}`);
+            const response = await axios.get<Product>(`https://dummyjson.com/products/${id}`);
             setProduct(response.data);
         } catch (error) {
             console.error('Error fetching product:', error);

@@ -3,14 +3,14 @@ import { useNavigate } from "react-router-dom";
 
 import { useAuth } from "../contexts/auth/useAuthContext";
 import { signIn } from "../services/api/api";
-import { IEntity } from "../services/types/types";
+import { UserSignIn } from "../services/types/types";
 
 interface LoginProps {
   language?: string;
 }
 
 export const Login: React.FC<LoginProps> = ({ language }) => {
-    const [formData, setFormData] = useState<IEntity.UserSignIn>({
+    const [formData, setFormData] = useState<UserSignIn>({
         name: "",
         email: "",
         password: "",

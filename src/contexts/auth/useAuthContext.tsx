@@ -1,7 +1,7 @@
 import React, { createContext, useContext, useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { http } from '../../services/api/http';
-import { IEntity } from '../../services/types/types';
+import { UserSignIn } from '../../services/types/types';
 
 
 interface User {
@@ -12,7 +12,7 @@ interface User {
 
 interface AuthContextType {
   user: User | null;
-  login: (data: IEntity.UserSignIn) => Promise<void>;
+  login: (data: UserSignIn) => Promise<void>;
   logout: () => void;
   isLoggedIn: () => boolean;
 }
@@ -35,7 +35,7 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
     }
   }, []);
 
-  const login = async (data: IEntity.UserSignIn) => {
+  const login = async (data: UserSignIn) => {
     try {
       const response = await http.post('/api/v1/users/', data);
       const userData = response.data;

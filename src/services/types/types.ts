@@ -1,4 +1,3 @@
-export namespace IEntity {
     export interface UserSignIn {
         avatarFile: IFile;
         name: string;
@@ -21,6 +20,4 @@ export namespace IEntity {
         category: string;
         thumbnail: string;
         images: string[];
-    }
-}
-  
+      }
