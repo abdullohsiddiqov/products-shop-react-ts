@@ -12,14 +12,18 @@ const SingleProduct: React.FC = () => {
             const response = await axios.get<Product>(`https://dummyjson.com/products/${id}`);
             setProduct(response.data);
         } catch (error) {
-            console.error('Error fetching product:', error);
+            console.error('Ошибка при получении продукта:', error);
             setProduct(null);
         }
     };
 
     useEffect(() => {
-        fetchProduct();
-    }, [id]);
+        const fetchData = async () => {
+            await fetchProduct();
+        };
+
+        fetchData();
+    }, [id, fetchProduct]);
 
     if (!product) {
         return <div>Loading...</div>;
