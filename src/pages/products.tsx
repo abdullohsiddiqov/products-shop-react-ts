@@ -70,11 +70,11 @@ export const Products: React.FC = () => {
                 <p>Stock: {product.stock}</p>
                 <p>Brand: {product.brand}</p>
                 <p>Category: {product.category}</p>
-                <img src={product.thumbnail} alt={product.title} />
+                <img src={product.thumbnail} alt={`${product.title} thumbnail`} />
               </Link>
               <button onClick={() => handleAddToCart(product)}>
                   <img src={korzinaIcon} alt="Add to Cart" />
-                </button>
+              </button>
             </li>
           ))}
         </ul>
