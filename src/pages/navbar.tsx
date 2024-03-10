@@ -5,7 +5,6 @@ import { Link } from "react-router-dom";
 import logoutIcon from '../assets/images/logout.svg';
 import favoriteIcon from '../assets/images/favorites.svg';
 import korzinaIcon from '../assets/images/korzina.svg';
-
 export const Navbar: React.FC = () => {
     const { user, logout } = useAuth();
     const { cartItems } = useCartsContext();

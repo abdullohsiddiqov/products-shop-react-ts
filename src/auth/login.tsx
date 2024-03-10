@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
-
 import { useAuth } from "../contexts/auth/useAuthContext";
 import { signIn } from "../services/api/api";
 import { UserSignIn } from "../services/types/types";
