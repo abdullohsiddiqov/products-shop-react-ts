@@ -4,10 +4,39 @@
     padding: 0;
     font-family: 'Poppins';
 }
+html{ 
+    scroll-behavior: smooth!important;
+}
 li{ 
     text-decoration: none;
     list-style: none;
 }
 body{
     overflow-x: hidden;
+}
+.fill:hover{ 
+    fill: orange !important;
+    transition: .3s;
+}
+h1{ 
+    color: black;
+    font-weight: 500;
+    margin-top: 30px;
+}
+a{ 
+    text-decoration: none;
+}
+img{ 
+    object-fit: cover;
+}
+.text-centered{ 
+    display: flex!important;
+    align-items: center!important;
+    justify-content: center!important;
+}
+.searchBox{ 
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 40px;
 }

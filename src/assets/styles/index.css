@@ -315,6 +315,10 @@ template {
   font-family: "Poppins";
 }
 
+html {
+  scroll-behavior: smooth !important;
+}
+
 li {
   text-decoration: none;
   list-style: none;
@@ -322,6 +326,39 @@ li {
 
 body {
   overflow-x: hidden;
+}
+
+.fill:hover {
+  fill: orange !important;
+  transition: 0.3s;
+}
+
+h1 {
+  color: black;
+  font-weight: 500;
+  margin-top: 30px;
+}
+
+a {
+  text-decoration: none;
+}
+
+img {
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+
+.text-centered {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+}
+
+.searchBox {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 40px;
 }
 
 @font-face {
@@ -408,24 +445,13 @@ body {
   font-weight: 600;
   font-style: italic;
 }
-.sign-up {
-  width: 150px;
-  height: 50px;
-  background-color: black;
-  border: none;
-  color: white;
-  font-size: 17px;
-  font-weight: 600;
-  border-radius: 30px;
-  cursor: pointer;
-  -webkit-user-select: none;
-     -moz-user-select: none;
-      -ms-user-select: none;
-          user-select: none;
-}
-.sign-up .txt {
+.txt {
   color: white;
   text-decoration: none;
+}
+.txt img {
+  width: 40px;
+  height: 40px;
 }
 
 .sign-up:hover {
@@ -440,20 +466,16 @@ body {
   transition: 0.3s;
 }
 
-.nav {
+#navbar {
   display: flex;
   align-items: center;
   justify-content: center;
-  padding-top: 30px;
-  padding-bottom: 30px;
-  gap: 200px;
-  box-shadow: 0px 3px 10px 1px #999999;
-  position: -webkit-sticky;
-  position: sticky;
-  top: 0;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  gap: 150px;
   background-color: white;
 }
-.nav .icon {
+#navbar .iconn {
   font-size: 50px;
   color: black;
   font-weight: 500;
@@ -464,11 +486,11 @@ body {
   cursor: pointer;
   text-decoration: none;
 }
-.nav .logout {
+#navbar .logout {
   border: none;
   background-color: transparent;
 }
-.nav .logout img {
+#navbar .logout img {
   width: 25px;
   height: 25px;
   cursor: pointer;
@@ -477,7 +499,7 @@ body {
       -ms-user-select: none;
           user-select: none;
 }
-.nav .nav-elements {
+#navbar .nav-elementss {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -486,33 +508,38 @@ body {
      -moz-user-select: none;
       -ms-user-select: none;
           user-select: none;
+  margin-top: 10px;
 }
-.nav .nav-elements a {
+#navbar .nav-elementss a {
   text-decoration: none;
 }
-.nav .nav-elements li {
+#navbar .nav-elementss li {
   color: black;
   font-weight: 600;
   font-size: 20px;
   cursor: pointer;
 }
-.nav .nav-elements li:hover {
+#navbar .nav-elementss li:hover {
   color: orange;
   transition: 0.3s;
 }
-.nav .nav-icons {
+#navbar .nav-icons {
   display: flex;
   align-items: center;
   justify-content: center;
   gap: 20px;
 }
-.nav .nav-icons .user-info {
+#navbar .nav-icons .flex .auth img {
+  width: 30px;
+  height: 30px;
+}
+#navbar .nav-icons .user-info {
   display: flex;
   align-items: center;
   justify-content: center;
   gap: 10px;
 }
-.nav .nav-icons .user-info img {
+#navbar .nav-icons .user-info img {
   width: 50px;
   height: 50px;
   border-radius: 50%;
@@ -521,8 +548,8 @@ body {
       -ms-user-select: none;
           user-select: none;
 }
-.nav .nav-icons .user-info .user {
-  color: black !important;
+#navbar .nav-icons .user-info .user {
+  color: black;
   font-size: 18px;
   font-weight: 600;
   -webkit-user-select: none;
@@ -530,13 +557,13 @@ body {
       -ms-user-select: none;
           user-select: none;
 }
-.nav .nav-icons .flex {
+#navbar .nav-icons .flex {
   display: flex;
   align-items: center;
   justify-content: center;
   gap: 30px;
 }
-.nav .nav-icons .flex .favorites {
+#navbar .nav-icons .flex .favorites {
   background-color: transparent;
   border: none;
   cursor: pointer;
@@ -545,7 +572,7 @@ body {
       -ms-user-select: none;
           user-select: none;
 }
-.nav .nav-icons .flex .korzina {
+#navbar .nav-icons .flex .korzina {
   background-color: transparent;
   border: none;
   cursor: pointer;
@@ -555,7 +582,7 @@ body {
           user-select: none;
   position: relative;
 }
-.nav .nav-icons .flex .korzina .cart-count {
+#navbar .nav-icons .flex .korzina .cart-count {
   background-color: red;
   position: absolute;
   bottom: 20px;
@@ -569,24 +596,120 @@ body {
   color: white;
 }
 
+header img {
+  width: 1800px !important;
+  height: 780px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+
 @media screen and (max-width: 1200px) {
-  .nav {
+  #navbar {
     gap: 70px;
+  }
+  .products-grid {
+    grid-template-columns: repeat(2, 350px) !important;
   }
 }
 @media screen and (max-width: 915px) {
-  .nav .nav-elements {
+  #navbar .nav-elementss {
     gap: 25px;
   }
 }
 @media screen and (max-width: 900px) {
-  .nav {
+  #navbar {
     flex-flow: column;
     gap: 20px;
   }
 }
+@media screen and (max-width: 800px) {
+  .products-grid {
+    grid-template-columns: repeat(1, 350px) !important;
+    justify-content: center;
+    margin-right: 30px;
+  }
+  .form-control {
+    width: 300px !important;
+  }
+  .products h1 {
+    margin-left: 30px !important;
+  }
+}
+.form-control {
+  width: 500px;
+  font-family: sans-serif;
+}
+
 .products {
   display: flex;
   align-items: center;
   justify-content: center;
+  margin-top: 60px;
+}
+.products a {
+  text-decoration: none;
+  color: black;
+}
+.products button {
+  border: none;
+  background-color: transparent;
+}
+.products button svg {
+  cursor: pointer;
+}
+.products .products-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 350px);
+  gap: 50px;
+}
+.products .products-grid .brdr {
+  border-radius: 10px;
+  border: 1px solid lightgrey;
+  padding: 10px;
+}
+.products .products-grid li {
+  width: 350px;
+}
+.products .products-grid li .end {
+  display: flex;
+  align-items: center;
+}
+.products .products-grid li .end .btn-no {
+  width: 110px;
+  height: 40px;
+  background-color: #0D6EFD;
+  color: white;
+  border: none;
+  border-radius: 10px;
+}
+.products .products-grid li img {
+  width: 330px;
+  height: 250px;
+  -o-object-fit: cover;
+     object-fit: cover;
+  border-radius: 10px;
+}
+
+.btn-lg {
+  margin-top: 50px;
+}
+
+.flex2 {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 80vh;
+}
+
+.delete {
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+}
+.delete img {
+  width: 30px;
+  height: 30px;
 }
