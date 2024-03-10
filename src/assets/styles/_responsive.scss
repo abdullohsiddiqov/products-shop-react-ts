@@ -1,19 +1,38 @@
 @media screen and (max-width: 1200px) {
-    .nav{ 
+    #navbar{ 
         gap: 70px;
+    }
+    .products-grid{ 
+        grid-template-columns: repeat(2, 350px)!important;
     }
 }
 @media screen and (max-width: 915px) {  
-    .nav{ 
-        .nav-elements{ 
+    #navbar{ 
+        .nav-elementss{ 
             gap: 25px;
         }
     }
 }
 
 @media screen and (max-width: 900px) { 
-    .nav{ 
+    #navbar{ 
         flex-flow: column;
         gap: 20px;
     }
 }
+
+@media screen and (max-width: 800px) {
+    .products-grid{ 
+        grid-template-columns: repeat(1, 350px)!important;
+        justify-content: center;
+        margin-right: 30px;
+    }
+    .form-control{ 
+        width: 300px!important;
+    }
+    .products{ 
+        h1{ 
+            margin-left: 30px!important;
+        }
+    }
+} 

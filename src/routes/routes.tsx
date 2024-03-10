@@ -16,8 +16,8 @@ export function Routers(){
     <Router>
       <AuthProvider>
         <CartsProvider>
-          <Navbar/>
           <Routes>
+            <ReactRoute path='/' element={<Navbar/>}/>
             <ReactRoute path="/auth/sign-up" element={<Login />} />
             <ReactRoute path="/page/favorites" element={<Favorites />} />
             <ReactRoute path="/page/user/korzina" element={<Korzina />} />

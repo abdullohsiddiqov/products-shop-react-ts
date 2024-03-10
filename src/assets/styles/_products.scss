@@ -2,4 +2,56 @@
     display: flex;
     align-items: center;
     justify-content: center;
+    margin-top: 60px;
+    a{ 
+        text-decoration: none;
+        color: black;
+    }
+    button{ 
+        border: none;
+        background-color: transparent;
+        svg{ 
+            cursor: pointer;
+        }
+    }
+    .products-grid{ 
+        display: grid;
+        grid-template-columns: repeat(3,350px);
+        gap: 50px;
+        .brdr{ 
+            border-radius: 10px;
+            border: 1px solid lightgrey;
+            padding: 10px;
+        }
+        li{ 
+            width: 350px;
+            .end{ 
+                display: flex;
+                align-items: center;
+                .btn-no{ 
+                    width: 110px;
+                    height: 40px;
+                    background-color: #0D6EFD;
+                    color: white;
+                    border: none;
+                    border-radius: 10px;
+                }
+            }
+            img{ 
+                width: 330px;
+                height: 250px;
+                object-fit: cover;
+                border-radius: 10px;
+            }
+        }
+    }
+}
+.btn-lg{ 
+    margin-top: 50px;
+}
+.flex2{ 
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 80vh;
 }

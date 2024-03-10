@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { useParams } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
 import axios from 'axios';
 import { Product } from '../services/types/types';
 
@@ -30,6 +30,8 @@ const SingleProduct: React.FC = () => {
     }
 
     return (
+        <>
+        <Link to='/page/products/list'><button type="button" className="btn btn-primary btn-lg">Go to Products</button></Link>
         <div>
             <h1>{product.title}</h1>
             <p>Description: {product.description}</p>
@@ -46,6 +48,7 @@ const SingleProduct: React.FC = () => {
                 ))}
             </div>
         </div>
+        </>
     );
 };
 
