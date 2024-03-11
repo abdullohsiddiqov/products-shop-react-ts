@@ -47,23 +47,23 @@ export const Products: React.FC = () => {
   return (
     <div className="container">
       <Link to="/">
-        <button type="button" className="btn btn-primary btn-lg">
+        <button type="button" className="button-back">
           Go Home
         </button>
       </Link>
       <div className="products">
         <div className="">
           <h1>Products</h1>
-          <div className="searchBox">
+          <div className="search">
             <input
-              className="form-control"
-              list="datalistOptions"
-              id="exampleDataList"
+              type="text"
+              className="search__input"
               placeholder="Type to search..."
               value={searchValue}
               onChange={handleSearchChange}
             />
-            <button className="searchButton"></button>
+            <button className="search__button">
+            </button>
           </div>
           {searchedProduct ? (
             <div>
@@ -110,11 +110,16 @@ export const Products: React.FC = () => {
                     </Link>
                     <li className="end">
                       <button
-                        type="button"
-                        className="btn-no"
+                        className="c-button"
                         onClick={() => handleAddToCart(product)}
                       >
-                        Add to Cart
+                        <span className="c-main">
+                          <span className="c-ico">
+                            <span className="c-blur"></span>{" "}
+                            <span className="ico-text">+</span>
+                          </span>
+                          Add to Cart
+                        </span>
                       </button>
                     </li>
                   </li>

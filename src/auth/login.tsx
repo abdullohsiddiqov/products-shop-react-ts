@@ -4,7 +4,6 @@ import { useAuth } from "../contexts/auth/useAuthContext";
 import { signIn } from "../services/api/api";
 import { UserSignIn } from "../services/types/types";
 import { Link } from "react-router-dom";
-
 interface LoginProps {
   language?: string;
 }
@@ -78,38 +77,70 @@ export const Login: React.FC<LoginProps> = ({ language }) => {
 
   return (
     <div className="container">
-      <Link to='/'>
-        <button type="button" className="btn-close" aria-label="Close"></button>
+      <Link to="/">
+        <button type="button" className="btn-close"></button>
       </Link>
       <section>
         <div className="form-box">
           <div className="form-value">
             <form onSubmit={handleSubmit}>
-              <h2>Sign Up</h2>
+              <h2 >Sign Up</h2>
               <div className="inputbox">
                 <div className="mb-3">
-                  <label htmlFor="exampleFormControlInput1" className="form-label">Username</label>
-                  <input type="text" className="form-control" id="" placeholder="username.." name="name"
+                  <label
+                    htmlFor="exampleFormControlInput1"
+                    className="form-label"
+                  >
+                    Username
+                  </label>
+                  <input
+                    type="text"
+                    className="form-control"
+                    id=""
+                    placeholder="username.."
+                    name="name"
                     value={formData.name}
                     onChange={handleChange}
-                    required/>
+                    required
+                  />
                 </div>
               </div>
               <div className="inputbox">
                 <div className="mb-3">
-                  <label htmlFor="exampleFormControlInput1" className="form-label">Email address</label>
-                  <input type="email" className="form-control" id="exampleFormControlInput1" placeholder="name@example.com" name="email"
+                  <label
+                    htmlFor="exampleFormControlInput1"
+                    className="form-label"
+                  >
+                    Email address
+                  </label>
+                  <input
+                    type="email"
+                    className="form-control"
+                    id="exampleFormControlInput1"
+                    placeholder="name@example.com"
+                    name="email"
                     value={formData.email}
                     onChange={handleChange}
-                    required/>
+                    required
+                  />
                 </div>
               </div>
               <div className="inputbox">
                 <div className="lock-closed-outline"></div>
                 <div className="inputbox">
                   <div className="lock-closed-outline"></div>
-                  <label htmlFor="inputPassword5" className="form-label">Password</label>
-                  <input type="password" name="password" id="inputPassword5" className="form-control" aria-describedby="passwordHelpBlock" value={formData.password}onChange={handleChange}/>
+                  <label htmlFor="inputPassword5" className="form-label">
+                    Password
+                  </label>
+                  <input
+                    type="password"
+                    name="password"
+                    id="inputPassword5"
+                    className="form-control"
+                    aria-describedby="passwordHelpBlock"
+                    value={formData.password}
+                    onChange={handleChange}
+                  />
                   <div id="passwordHelpBlock" className="form-text">
                     Your password must be 8-20 characters long
                   </div>
@@ -125,7 +156,11 @@ export const Login: React.FC<LoginProps> = ({ language }) => {
                   />
                 </div>
               </div>
-              <button className="btn btn-primary" type="submit" disabled={loading}>
+              <button
+                className="btn btn-primary"
+                type="submit"
+                disabled={loading}
+              >
                 {loading ? (
                   <div className="spinner-border" role="status">
                     <span className="sr-only"></span>
