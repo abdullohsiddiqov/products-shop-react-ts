@@ -1,122 +1,203 @@
-#navbar{ 
+#navbar {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  gap: 150px;
+  background-color: white;
+  .iconn {
+    font-size: 50px;
+    color: black;
+    font-weight: 500;
+    user-select: none;
+    cursor: pointer;
+    text-decoration: none;
+  }
+  /* credits to uiverse.io/profile/eirikvold */
+  .login-button {
+    font-family: inherit;
+    font-size: 16px;
+    background: rgb(24, 119, 240);
+    background: linear-gradient(
+      90deg,
+      rgb(12, 28, 48) 0%,
+      rgb(15, 17, 67) 50%,
+      rgb(57, 56, 69) 100%
+    );
+    color: white;
+    padding: 8px 10px;
+    display: grid;
+    grid-template-columns: auto 0fr;
+    align-items: center;
+    border: none;
+    border-radius: 16px;
+    box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.2);
+    transition: all 0.3s;
+  }
+
+  .login-button:hover {
+    cursor: pointer;
+    transform: translateY(-3px);
+    box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.3);
+    grid-template-columns: auto 1fr;
+    border: none;
+  }
+
+  .login-button:active {
+    transform: scale(0.95);
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.2);
+  }
+
+  .login-button span {
+    display: block;
+    margin-left: 0.4em;
+    transition: all 0.3s;
+  }
+
+  .login-button svg {
+    transition: all 0.3s;
+  }
+
+  .login-button .svg-wrapper {
     display: flex;
     align-items: center;
     justify-content: center;
-    padding-top: 20px;
-    padding-bottom: 20px;
-    gap: 150px;
-    background-color: white;
-    .iconn{ 
-        font-size: 50px;
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+    color: #fff;
+    transition: all 0.3s;
+  }
+
+  .login-button:hover .svg-wrapper {
+    background: none;
+    margin-right: 0.5em;
+    animation: bounce 1.3s ease-in-out;
+  }
+
+  .text {
+    overflow: hidden;
+  }
+
+  @keyframes bounce {
+    0% {
+      translate: 0;
+    }
+
+    50% {
+      translate: 0 -8px;
+    }
+
+    100% {
+      translate: 0;
+    }
+  }
+
+  .logout {
+    border: none;
+    background-color: transparent;
+    img {
+      width: 25px;
+      height: 25px;
+      cursor: pointer;
+      user-select: none;
+    }
+  }
+
+  .nav-elementss {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 35px;
+    user-select: none;
+    margin-top: 10px;
+    a {
+      text-decoration: none;
+    }
+    li {
+      color: black;
+      font-weight: 600;
+      font-size: 20px;
+      cursor: pointer;
+      &:hover {
+        color: orange;
+        transition: 0.3s;
+      }
+    }
+  }
+  .nav-icons {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+    .flex {
+      .auth {
+        img {
+          width: 30px;
+          height: 30px;
+        }
+      }
+    }
+    .user-info {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      img {
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+        user-select: none;
+      }
+      .user {
         color: black;
-        font-weight: 500;
+        font-size: 18px;
+        font-weight: 600;
         user-select: none;
-        cursor: pointer;
-        text-decoration: none;
+      }
     }
-    .logout{ 
-        border: none;
+    .flex {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 30px;
+      .favorites {
         background-color: transparent;
-        img{ 
-            width: 25px;
-            height: 25px;
-            cursor: pointer;
-            user-select: none;
-        }
-    }
-    .nav-elementss{ 
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        gap: 35px;
+        border: none;
+        cursor: pointer;
         user-select: none;
-        margin-top: 10px;
-        a{
-            text-decoration: none;
+      }
+      .korzina {
+        background-color: transparent;
+        border: none;
+        cursor: pointer;
+        user-select: none;
+        position: relative;
+        .cart-count {
+          background-color: red;
+          position: absolute;
+          bottom: 20px;
+          width: 20px;
+          left: 10px;
+          height: 20px;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          border-radius: 50%;
+          color: white;
         }
-        li{ 
-            color: black;
-            font-weight: 600;
-            font-size: 20px;
-            cursor: pointer;
-            &:hover{ 
-                color: orange;
-                transition: .3s;
-            }
-        }
+      }
     }
-    .nav-icons{ 
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        gap: 20px;
-        .flex{ 
-            .auth{ 
-                img{ 
-                    width: 30px;
-                    height: 30px;
-                }
-            }
-        }
-        .user-info{ 
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 10px;
-            img{ 
-                width: 50px;
-                height: 50px;
-                border-radius: 50%;
-                user-select: none;
-            }
-            .user{ 
-                color: black;
-                font-size: 18px;
-                font-weight: 600;
-                user-select: none;
-            }
-        }
-        .flex{ 
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 30px;
-            .favorites{ 
-                background-color: transparent;
-                border: none;
-                cursor: pointer;
-                user-select: none;
-            }
-            .korzina{ 
-                background-color: transparent;
-                border: none;
-                cursor: pointer;
-                user-select: none;
-                position: relative;
-                .cart-count{ 
-                    background-color: red;
-                    position: absolute;
-                    bottom: 20px;
-                    width: 20px;
-                    left: 10px;
-                    height: 20px;
-                    display: flex;
-                    align-items: center;
-                    justify-content: center;
-                    border-radius: 50%;
-                    color: white;
-                }
-            }
-        }
-    }
+  }
 }
-header{ 
-    img{ 
-        width: 1800px!important;
-        height: 780px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        object-fit: cover;
-    }
+header {
+  img {
+    width: 1800px !important;
+    height: 780px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    object-fit: cover;
+  }
 }

@@ -4,6 +4,7 @@ import { useAuth } from "../contexts/auth/useAuthContext";
 import { signIn } from "../services/api/api";
 import { UserSignIn } from "../services/types/types";
 import { Link } from "react-router-dom";
+import "../assets/styles/login.css";
 interface LoginProps {
   language?: string;
 }
@@ -76,7 +77,7 @@ export const Login: React.FC<LoginProps> = ({ language }) => {
   };
 
   return (
-    <div className="container">
+    <div className="container-login">
       <Link to="/">
         <button type="button" className="btn-close"></button>
       </Link>
@@ -84,15 +85,9 @@ export const Login: React.FC<LoginProps> = ({ language }) => {
         <div className="form-box">
           <div className="form-value">
             <form onSubmit={handleSubmit}>
-              <h2 >Sign Up</h2>
+              <h2>Sign Up</h2>
               <div className="inputbox">
                 <div className="mb-3">
-                  <label
-                    htmlFor="exampleFormControlInput1"
-                    className="form-label"
-                  >
-                    Username
-                  </label>
                   <input
                     type="text"
                     className="form-control"
@@ -107,12 +102,6 @@ export const Login: React.FC<LoginProps> = ({ language }) => {
               </div>
               <div className="inputbox">
                 <div className="mb-3">
-                  <label
-                    htmlFor="exampleFormControlInput1"
-                    className="form-label"
-                  >
-                    Email address
-                  </label>
                   <input
                     type="email"
                     className="form-control"
@@ -129,12 +118,11 @@ export const Login: React.FC<LoginProps> = ({ language }) => {
                 <div className="lock-closed-outline"></div>
                 <div className="inputbox">
                   <div className="lock-closed-outline"></div>
-                  <label htmlFor="inputPassword5" className="form-label">
-                    Password
-                  </label>
+
                   <input
                     type="password"
                     name="password"
+                    placeholder="password..."
                     id="inputPassword5"
                     className="form-control"
                     aria-describedby="passwordHelpBlock"
@@ -151,13 +139,13 @@ export const Login: React.FC<LoginProps> = ({ language }) => {
                   <input
                     type="file"
                     name="avatarFile"
-                    className="form-control"
+                    className="custum-file-upload"
                     onChange={(e) => handleAvatarChange(e.target.files)}
                   />
                 </div>
               </div>
               <button
-                className="btn btn-primary"
+                className="button-submit"
                 type="submit"
                 disabled={loading}
               >

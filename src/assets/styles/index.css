@@ -474,6 +474,7 @@ img {
   padding-bottom: 20px;
   gap: 150px;
   background-color: white;
+  /* credits to uiverse.io/profile/eirikvold */
 }
 #navbar .iconn {
   font-size: 50px;
@@ -484,6 +485,69 @@ img {
           user-select: none;
   cursor: pointer;
   text-decoration: none;
+}
+#navbar .login-button {
+  font-family: inherit;
+  font-size: 16px;
+  background: rgb(24, 119, 240);
+  background: linear-gradient(90deg, rgb(12, 28, 48) 0%, rgb(15, 17, 67) 50%, rgb(57, 56, 69) 100%);
+  color: white;
+  padding: 8px 10px;
+  display: grid;
+  grid-template-columns: auto 0fr;
+  align-items: center;
+  border: none;
+  border-radius: 16px;
+  box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.2);
+  transition: all 0.3s;
+}
+#navbar .login-button:hover {
+  cursor: pointer;
+  transform: translateY(-3px);
+  box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.3);
+  grid-template-columns: auto 1fr;
+  border: none;
+}
+#navbar .login-button:active {
+  transform: scale(0.95);
+  box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.2);
+}
+#navbar .login-button span {
+  display: block;
+  margin-left: 0.4em;
+  transition: all 0.3s;
+}
+#navbar .login-button svg {
+  transition: all 0.3s;
+}
+#navbar .login-button .svg-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 25px;
+  height: 25px;
+  border-radius: 50%;
+  color: #fff;
+  transition: all 0.3s;
+}
+#navbar .login-button:hover .svg-wrapper {
+  background: none;
+  margin-right: 0.5em;
+  animation: bounce 1.3s ease-in-out;
+}
+#navbar .text {
+  overflow: hidden;
+}
+@keyframes bounce {
+  0% {
+    translate: 0;
+  }
+  50% {
+    translate: 0 -8px;
+  }
+  100% {
+    translate: 0;
+  }
 }
 #navbar .logout {
   border: none;
@@ -634,6 +698,73 @@ header img {
 .form-control {
   width: 500px;
   font-family: sans-serif;
+}
+
+.container-login {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  top: 180px;
+}
+.container-login .button-submit {
+  position: relative;
+  display: inline-block;
+  padding: 15px 30px;
+  text-align: center;
+  letter-spacing: 1px;
+  text-decoration: none;
+  background: transparent;
+  transition: ease-out 0.5s;
+  border: 2px solid #000;
+  border-radius: 10em;
+  box-shadow: inset 0 0 0 0 blue;
+  margin: 20px 0 10px 0;
+  color: #000;
+  font-size: 15px;
+  font-weight: 500;
+  height: 50px;
+  width: 100%;
+  cursor: pointer;
+}
+.container-login .button-submit:hover {
+  color: white;
+  box-shadow: inset 0 -100px 0 0 rgb(16, 21, 36);
+}
+.container-login .button-submit:active {
+  transform: scale(0.9);
+}
+.container-login .custum-file-upload {
+  height: 80px;
+  width: 340px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+  cursor: pointer;
+  border: 2px dashed #e8e8e8;
+  background-color: transparent;
+  padding: 1.5rem;
+  border-radius: 10px;
+  box-shadow: 0px 48px 35px -48px #e8e8e8;
+}
+.container-login .custum-file-upload:hover {
+  background: rgb(16, 21, 36);
+  color: #fff;
+  transition: 0.3s;
+}
+.container-login .custum-file-upload[type=file]::file-selector-button {
+  background-color: transparent;
+  border: 1px solid;
+  border-radius: 10px;
+  background-color: #dedede;
+  color: #000;
+}
+
+.btn-close {
+  position: relative;
+  left: 340px;
+  bottom: 200px;
 }
 
 .products {
@@ -830,13 +961,21 @@ header img {
   flex-direction: column;
   align-items: start;
   justify-content: start;
-  margin-top: 60px;
 }
 .container .container-grid {
   display: grid;
   grid-template-columns: repeat(3, 350px);
   gap: 50px;
   margin-top: 35px;
+}
+.container .error {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  left: 500px;
+  bottom: 80px;
+  font-size: 24px;
 }
 .container .brdr-del {
   border-radius: 10px;

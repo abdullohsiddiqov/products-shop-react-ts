@@ -21,7 +21,7 @@ export const Korzina: React.FC = () => {
       </Link>
       {cartItems.length === 0 ? (
         <div className="flex2">
-          <p>Your basket is empty.</p>
+          <p className="error">Your basket is empty.</p>
         </div>
       ) : (
         <ul className="container-grid">
