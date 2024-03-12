@@ -3,13 +3,13 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  margin-top: 60px;
   .container-grid {
     display: grid;
     grid-template-columns: repeat(3, 350px);
     gap: 50px;
     margin-top: 35px;
   }
+
   .brdr-del {
     border-radius: 10px;
     border: 1px solid lightgrey;
@@ -20,7 +20,7 @@
       -20px -20px 60px #ffffff;
     transition: 0.5s;
     &:hover {
-      transform: scale(0.95) ;
+      transform: scale(0.95);
     }
   }
   img {
@@ -67,7 +67,6 @@
     transform: translateY(0px);
     transition-duration: 0.3s;
   }
-  
 }
 
 .delete-svgIcon {
@@ -88,6 +87,3 @@
   -ms-transform: rotate(360deg);
   transform: rotate(360deg);
 }
-
-
-
