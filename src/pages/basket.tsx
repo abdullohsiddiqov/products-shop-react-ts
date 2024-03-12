@@ -1,18 +1,20 @@
 import React from "react";
 import { useCartsContext } from "../contexts/cart/useCartsContext";
-import deleteIcon from "../assets/images/delete.svg";
 import { Link } from "react-router-dom";
-import Item from "antd/es/list/Item";
 
-export const Korzina: React.FC = () => {
+export const Basket: React.FC = () => {
   const { cartItems, removeFromCart } = useCartsContext();
 
   const handleRemoveFromCart = (productId: number) => {
     removeFromCart(productId);
   };
 
+  const overallPrice = cartItems.reduce(
+    (total, item) => total + item.product.price * item.quantity,
+    0
+  );
   return (
-    <div className="container">
+    <div className="cont">
       <h1>Basket</h1>
       <Link to="/">
         <button type="button" className="button-back">
@@ -24,8 +26,11 @@ export const Korzina: React.FC = () => {
           <p>Your basket is empty.</p>
         </div>
       ) : (
+       <>
+       <p className="overal-price">Overall Price: ${overallPrice.toFixed(2)}</p>
         <ul className="container-grid">
           {cartItems.map((item, index) => (
+            <>
             <li key={index} className="brdr-del">
               <img src={item.product.thumbnail} alt="" />
               <h2>{item.product.title}</h2>
@@ -41,8 +46,10 @@ export const Korzina: React.FC = () => {
                 </svg>
               </button>
             </li>
+            </>
           ))}
         </ul>
+       </>
       )}
     </div>
   );

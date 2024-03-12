@@ -313,6 +313,8 @@ template {
   margin: 0;
   padding: 0;
   font-family: "Poppins";
+  -o-object-fit: cover;
+     object-fit: cover;
 }
 
 html {
@@ -481,6 +483,7 @@ img {
   font-weight: 500;
   -webkit-user-select: none;
      -moz-user-select: none;
+      -ms-user-select: none;
           user-select: none;
   cursor: pointer;
   text-decoration: none;
@@ -495,6 +498,7 @@ img {
   cursor: pointer;
   -webkit-user-select: none;
      -moz-user-select: none;
+      -ms-user-select: none;
           user-select: none;
 }
 #navbar .nav-elementss {
@@ -504,6 +508,7 @@ img {
   gap: 35px;
   -webkit-user-select: none;
      -moz-user-select: none;
+      -ms-user-select: none;
           user-select: none;
   margin-top: 10px;
 }
@@ -535,6 +540,8 @@ img {
   align-items: center;
   justify-content: center;
   gap: 10px;
+  cursor: pointer;
+  text-decoration: none;
 }
 #navbar .nav-icons .user-info img {
   width: 50px;
@@ -542,6 +549,7 @@ img {
   border-radius: 50%;
   -webkit-user-select: none;
      -moz-user-select: none;
+      -ms-user-select: none;
           user-select: none;
 }
 #navbar .nav-icons .user-info .user {
@@ -550,6 +558,7 @@ img {
   font-weight: 600;
   -webkit-user-select: none;
      -moz-user-select: none;
+      -ms-user-select: none;
           user-select: none;
 }
 #navbar .nav-icons .flex {
@@ -564,6 +573,7 @@ img {
   cursor: pointer;
   -webkit-user-select: none;
      -moz-user-select: none;
+      -ms-user-select: none;
           user-select: none;
 }
 #navbar .nav-icons .flex .korzina {
@@ -572,6 +582,7 @@ img {
   cursor: pointer;
   -webkit-user-select: none;
      -moz-user-select: none;
+      -ms-user-select: none;
           user-select: none;
   position: relative;
 }
@@ -599,12 +610,17 @@ header img {
      object-fit: cover;
 }
 
+.toast-container {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  z-index: 1050;
+  pointer-events: none;
+}
+
 @media screen and (max-width: 1200px) {
   #navbar {
     gap: 70px;
-  }
-  .products-grid {
-    grid-template-columns: repeat(2, 350px) !important;
   }
 }
 @media screen and (max-width: 915px) {
@@ -616,6 +632,8 @@ header img {
   #navbar {
     flex-flow: column;
     gap: 20px;
+    justify-content: center;
+    margin-right: 20px;
   }
 }
 @media screen and (max-width: 800px) {
@@ -661,6 +679,7 @@ header img {
   color: #090909;
   padding: 0.7rem 1rem;
   border-radius: 30px;
+  width: -webkit-max-content;
   width: -moz-max-content;
   width: max-content;
   transition: all ease-in-out 0.5s;
@@ -705,6 +724,8 @@ header img {
   display: grid;
   grid-template-columns: repeat(3, 350px);
   gap: 50px;
+  justify-content: center;
+  place-items: center;
 }
 .products .products-grid .brdr {
   border-radius: 10px;
@@ -804,6 +825,8 @@ header img {
   box-shadow: 4px 8px 19px -3px rgba(0, 0, 0, 0.27);
   transition: all 250ms;
   overflow: hidden;
+  margin-left: 100px;
+  margin-top: 50px;
 }
 .button-back::before {
   content: "";
@@ -825,20 +848,34 @@ header img {
   width: 100%;
 }
 
-.container {
+.pos-abs {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  border: #000000;
+  color: #000000;
+}
+
+.center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.cont {
   display: flex;
   flex-direction: column;
-  align-items: start;
-  justify-content: start;
+  align-items: center;
+  justify-content: center;
   margin-top: 60px;
 }
-.container .container-grid {
+.cont .container-grid {
   display: grid;
   grid-template-columns: repeat(3, 350px);
   gap: 50px;
   margin-top: 35px;
 }
-.container .brdr-del {
+.cont .brdr-del {
   border-radius: 10px;
   border: 1px solid lightgrey;
   padding: 10px;
@@ -846,10 +883,10 @@ header img {
   box-shadow: 20px 20px 60px #bebebe, -20px -20px 60px #ffffff;
   transition: 0.5s;
 }
-.container .brdr-del:hover {
+.cont .brdr-del:hover {
   transform: scale(0.95);
 }
-.container img {
+.cont img {
   width: 330px;
   height: 250px;
   -o-object-fit: cover;
@@ -909,4 +946,4 @@ header img {
   transition-duration: 0.3s;
   transform: translateY(60%);
   transform: rotate(360deg);
-}/*# sourceMappingURL=index.css.map */
+}
