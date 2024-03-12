@@ -55,7 +55,7 @@ export const Navbar: React.FC = () => {
       <nav id="navbar">
         <Link to="/" className="iconn">
           <div className="iconn">
-            <span>M.A</span>
+            <span>logo</span>
           </div>
         </Link>
         <ul className="nav-elementss">
