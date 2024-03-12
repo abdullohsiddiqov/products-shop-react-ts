@@ -10,6 +10,7 @@ import { About } from '../pages/aboutUs';
 import { Products } from '../pages/products';
 import SingleProduct from '../pages/single.product';
 import { Profile } from '../pages/profile';
+import { Users } from '../pages/users';
 
 export function Routers(){ 
     return( 
@@ -26,6 +27,7 @@ export function Routers(){
             <ReactRoute path="/page/products/:id" element={<SingleProduct />} />
             <ReactRoute path="/page/about-us" element={<About />} />
             <ReactRoute path="/user/profile" element={<Profile />} />
+            <ReactRoute path="/admin/all-users" element={<Users />} />
           </Routes>
         </CartsProvider>
       </AuthProvider>

@@ -40,7 +40,7 @@
             font-size: 20px;
             cursor: pointer;
             &:hover{ 
-                color: orange;
+                color: gray;
                 transition: .3s;
             }
         }
@@ -124,7 +124,7 @@ header{
 }
 
 .admin-text{ 
-    color: lightgreen;
+    color: gray;
     font-size: 19px;
     font-weight: 500;
 }

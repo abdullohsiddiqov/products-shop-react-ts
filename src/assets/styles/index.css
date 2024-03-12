@@ -522,7 +522,7 @@ img {
   cursor: pointer;
 }
 #navbar .nav-elementss li:hover {
-  color: orange;
+  color: gray;
   transition: 0.3s;
 }
 #navbar .nav-icons {
@@ -611,7 +611,7 @@ header img {
 }
 
 .admin-text {
-  color: lightgreen;
+  color: gray;
   font-size: 19px;
   font-weight: 500;
 }
@@ -653,6 +653,12 @@ header img {
     margin-left: 30px !important;
   }
 }
+.user-avatar {
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+}
+
 .form-control {
   width: 500px;
   font-family: sans-serif;
@@ -730,6 +736,10 @@ header img {
   position: relative;
   left: 340px;
   bottom: 200px;
+}
+
+.custum-file-upload {
+  font-family: sans-serif;
 }
 
 .products {
@@ -947,7 +957,7 @@ header img {
   height: 60px;
   border: 0;
   border-radius: 10px;
-  background-color: #4834d4 !important;
+  background-color: #000000 !important;
   outline: none;
   cursor: pointer;
   color: #fff;
@@ -956,7 +966,7 @@ header img {
 }
 
 .cart-button:hover {
-  background-color: #35269b;
+  background-color: #000000;
 }
 
 .cart-button:active {
