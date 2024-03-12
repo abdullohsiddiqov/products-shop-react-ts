@@ -11,7 +11,7 @@ export const Korzina: React.FC = () => {
   };
 
   return (
-    <div className="cont">
+    <div>
       <h1>Basket</h1>
       <Link to="/">
         <button type="button" className="button-back">
@@ -19,7 +19,7 @@ export const Korzina: React.FC = () => {
         </button>
       </Link>
       {cartItems.length === 0 ? (
-        <div className="flex2">
+        <div className="cont">
           <p className="error">Your basket is empty.</p>
         </div>
       ) : (

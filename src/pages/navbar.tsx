@@ -8,11 +8,15 @@ import korzinaIcon from "../assets/images/korzina.svg";
 import clothesIcon from "../assets/images/clothes.jpg";
 import iosIcon from "../assets/images/iOS.webp";
 import samsungIcon from "../assets/images/samsung.webp";
+import loginIcon from "../assets/images/user.svg";
 
 export const Navbar: React.FC = () => {
   const { user, logout, isAdmin } = useAuth();
   const { cartItems } = useCartsContext();
-  const cartItemCount = cartItems.reduce((total, item) => total + item.quantity, 0);
+  const cartItemCount = cartItems.reduce(
+    (total, item) => total + item.quantity,
+    0
+  );
   const [activeSlide, setActiveSlide] = useState(0);
   const [opacity, setOpacity] = useState(1);
 
@@ -45,10 +49,9 @@ export const Navbar: React.FC = () => {
         setOpacity(opacity - 0.05);
       }
     }, 100);
-  
+
     return () => clearInterval(opacityInterval);
   }, [opacity]);
-  
 
   return (
     <>
@@ -92,14 +95,17 @@ export const Navbar: React.FC = () => {
           {user ? (
             <>
               <Link to="/user/profile" className="user-info">
-              <div className="user-info">
-                {user.avatar && (
-                  <img src={user.avatar} alt="Avatar" className="avatar" />
-                )}
-                <span style={{ color: "black" }} className="user">
-                  {user.name}{isAdmin() && <span className="admin-text"> "ADMIN"</span> || <span className="user-text"> "customer"</span>}
-                </span>
-              </div>
+                <div className="user-info">
+                  {user.avatar && (
+                    <img src={user.avatar} alt="Avatar" className="avatar" />
+                  )}
+                  <span style={{ color: "black" }} className="user">
+                    {user.name}
+                    {(isAdmin() && (
+                      <span className="admin-text"> "ADMIN"</span>
+                    )) || <span className="user-text"> "customer"</span>}
+                  </span>
+                </div>
               </Link>
               <button onClick={logout} className="logout">
                 <img src={logoutIcon} alt="Logout" />
@@ -109,8 +115,13 @@ export const Navbar: React.FC = () => {
             <>
               <li className="auth">
                 <Link to="/auth/sign-up" className="txt">
-                  <button type="button" className="btn btn-primary">
-                    Sign Up
+                  <button className="login-btn">
+                    <div className="svg-wrapper-1">
+                      <div className="svg-wrapper">
+                        <img src={loginIcon} alt="" />
+                      </div>
+                    </div>
+                    <div className="text">Login</div>
                   </button>
                 </Link>
               </li>
@@ -165,7 +176,11 @@ export const Navbar: React.FC = () => {
               <div className="carousel-caption d-none d-md-block">
                 <h5>Iphone 15 pro max</h5>
                 <p>
-                  The iPhone 15 Pro Max display has rounded corners that follow a beautiful curved design, and these corners are within a standard rectangle. When measured as a standard rectangular shape, the screen is 6.69 inches diagonally (actual viewable area is less).
+                  The iPhone 15 Pro Max display has rounded corners that follow
+                  a beautiful curved design, and these corners are within a
+                  standard rectangle. When measured as a standard rectangular
+                  shape, the screen is 6.69 inches diagonally (actual viewable
+                  area is less).
                 </p>
               </div>
             </div>
@@ -181,9 +196,7 @@ export const Navbar: React.FC = () => {
               />
               <div className="carousel-caption d-none d-md-block">
                 <h5>Clothes</h5>
-                <p>
-                  Lots of clothes for your taste and color.
-                </p>
+                <p>Lots of clothes for your taste and color.</p>
               </div>
             </div>
             <div
@@ -199,7 +212,9 @@ export const Navbar: React.FC = () => {
               <div className="carousel-caption d-none d-md-block">
                 <h5>Galaxy S24+ </h5>
                 <p>
-                  Accelerometer, Barometer, Fingerprint Sensor, Gyro Sensor, Geomagnetic Sensor, Hall Sensor, Light Sensor, Proximity Sensor
+                  Accelerometer, Barometer, Fingerprint Sensor, Gyro Sensor,
+                  Geomagnetic Sensor, Hall Sensor, Light Sensor, Proximity
+                  Sensor
                 </p>
               </div>
             </div>

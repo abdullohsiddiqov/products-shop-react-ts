@@ -4,8 +4,8 @@ import { Product } from "../services/types/types";
 import { Link } from "react-router-dom";
 import { useCartsContext } from "../contexts/cart/useCartsContext";
 import "bootstrap/dist/css/bootstrap.min.css";
-import '@fortawesome/fontawesome-free/css/all.css';
-import { Toast } from 'bootstrap';
+import "@fortawesome/fontawesome-free/css/all.css";
+import { Toast } from "bootstrap";
 import { useAuth } from "../contexts/auth/useAuthContext";
 
 export const Products: React.FC = () => {
@@ -36,13 +36,15 @@ export const Products: React.FC = () => {
 
   const fetchCategories = async () => {
     try {
-      const response = await axios.get('https://dummyjson.com/products/categories');
+      const response = await axios.get(
+        "https://dummyjson.com/products/categories"
+      );
       setCategories(response.data);
     } catch (error) {
       console.error("Error fetching categories:", error);
       setCategories([]);
     }
-  }
+  };
 
   useEffect(() => {
     fetchProducts(searchValue, selectedCategory);
@@ -58,17 +60,19 @@ export const Products: React.FC = () => {
   };
 
   const handleAddToCart = (product: Product) => {
-    const isProductInCart = cartItems.some(item => item.product.id === product.id);
-    
+    const isProductInCart = cartItems.some(
+      (item) => item.product.id === product.id
+    );
+
     if (!isProductInCart) {
       addToCart(product);
       setToastProduct(product);
     }
   };
-  
+
   useEffect(() => {
     if (toastProduct) {
-      const toastElement = document.querySelector('.toast');
+      const toastElement = document.querySelector(".toast");
       if (toastElement instanceof Element) {
         const toast = new Toast(toastElement);
         toast.show();
@@ -82,7 +86,7 @@ export const Products: React.FC = () => {
     }
   };
 
-  const addedStatus = JSON.parse(localStorage.getItem('addedStatus') || '{}');
+  const addedStatus = JSON.parse(localStorage.getItem("addedStatus") || "{}");
 
   return (
     <div className="">
@@ -91,22 +95,11 @@ export const Products: React.FC = () => {
           Go Home
         </button>
       </Link>
-      <div className="dropdown">
-        <button className="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-          {selectedCategory !== "" ? selectedCategory : "All Categories"}
-        </button>
-        <ul className="dropdown-menu">
-          <li><button className="dropdown-item" onClick={() => setSelectedCategory("")}>All Categories</button></li>
-          {categories.map((category, index) => (
-            <li key={index}><button className="dropdown-item" onClick={() => setSelectedCategory(category)}>{category}</button></li>
-          ))}
-        </ul>
-      </div>
       <div className="products">
+        <h1>Products</h1>
         <div className="">
           <div className="center">
-            <div className="">
-              <h1>Products</h1>
+            <div className="select">
               <div className="search">
                 <input
                   type="text"
@@ -116,13 +109,52 @@ export const Products: React.FC = () => {
                   onChange={handleSearchChange}
                 />
               </div>
+              <div className="dropdown">
+                <button
+                  className="btn btn-secondary dropdown-toggle"
+                  type="button"
+                  data-bs-toggle="dropdown"
+                  aria-expanded="false"
+                >
+                  {selectedCategory !== ""
+                    ? selectedCategory
+                    : "All Categories"}
+                </button>
+                <ul className="dropdown-menu">
+                  <li>
+                    <button
+                      className="dropdown-item"
+                      onClick={() => setSelectedCategory("")}
+                    >
+                      All Categories
+                    </button>
+                  </li>
+                  {categories.map((category, index) => (
+                    <li key={index}>
+                      <button
+                        className="dropdown-item"
+                        onClick={() => setSelectedCategory(category)}
+                      >
+                        {category}
+                      </button>
+                    </li>
+                  ))}
+                </ul>
+              </div>
             </div>
           </div>
           <div className="toast-container position-fixed bottom-0 end-0 p-3">
             {toastProduct && (
-              <div className="toast" role="alert" aria-live="assertive" aria-atomic="true">
+              <div
+                className="toast"
+                role="alert"
+                aria-live="assertive"
+                aria-atomic="true"
+              >
                 <div className="toast-header">
-                  <strong className="me-auto">Product Added by {user?.name}</strong>
+                  <strong className="me-auto">
+                    Product Added by {user?.name}
+                  </strong>
                   <button
                     type="button"
                     className="btn-close"
@@ -161,18 +193,20 @@ export const Products: React.FC = () => {
                     <p>Rating: {product.rating}</p>
                   </Link>
                   <li className="end">
-                  <button 
-                    className={`cart-button ${clickedButtons.includes(String(product.id)) ? 'clicked' : ''}`} 
-                    onClick={() => { 
-                      handleAddToCart(product); 
-                      handleCartButtonClick(String(product.id)); 
-                    }}
-                  >
-                    <span className="add-to-cart">{addedStatus[product.id] ? 'Added' : 'Add to cart'}</span>
-                    <span className="added">Added</span>
-                    <i className="fas fa-shopping-cart"></i>
-                    <i className="fas fa-box"></i>
-                  </button>
+                    <button
+                      className={`cart-button ${clickedButtons.includes(String(product.id)) ? "clicked" : ""}`}
+                      onClick={() => {
+                        handleAddToCart(product);
+                        handleCartButtonClick(String(product.id));
+                      }}
+                    >
+                      <span className="add-to-cart">
+                        {addedStatus[product.id] ? "Added" : "Add to cart"}
+                      </span>
+                      <span className="added">Added</span>
+                      <i className="fas fa-shopping-cart"></i>
+                      <i className="fas fa-box"></i>
+                    </button>
                   </li>
                 </li>
               ))

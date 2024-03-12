@@ -476,6 +476,7 @@ img {
   padding-bottom: 20px;
   gap: 150px;
   background-color: white;
+  /* credits to uiverse.io/profile/eirikvold */
 }
 #navbar .iconn {
   font-size: 50px;
@@ -483,10 +484,71 @@ img {
   font-weight: 500;
   -webkit-user-select: none;
      -moz-user-select: none;
-      -ms-user-select: none;
           user-select: none;
   cursor: pointer;
   text-decoration: none;
+}
+#navbar .login-btn {
+  font-family: inherit;
+  font-size: 16px;
+  background: rgb(24, 119, 240);
+  background: linear-gradient(90deg, rgb(43, 66, 95) 0%, rgb(19, 20, 53) 50%, rgb(16, 16, 50) 100%);
+  color: white;
+  padding: 0.6em 1em;
+  display: grid;
+  grid-template-columns: auto 0fr;
+  align-items: center;
+  border: none;
+  border-radius: 16px;
+  box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.2);
+  transition: all 0.3s;
+}
+#navbar .login-btn:hover {
+  cursor: pointer;
+  transform: translateY(-3px);
+  box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.3);
+  grid-template-columns: auto 1fr;
+}
+#navbar .login-btn:active {
+  transform: scale(0.95);
+  box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.2);
+}
+#navbar .login-btn span {
+  display: block;
+  margin-left: 0.4em;
+  transition: all 0.3s;
+}
+#navbar .login-btn img {
+  transition: all 0.3s;
+}
+#navbar .login-btn .svg-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background-color: rgba(255, 255, 255, 0.2);
+  transition: all 0.3s;
+}
+#navbar .login-btn:hover .svg-wrapper {
+  background-color: rgba(255, 255, 255, 0.5);
+  margin-right: 0.5em;
+  animation: bounce 1.2s ease-in-out;
+}
+#navbar .text {
+  overflow: hidden;
+}
+@keyframes bounce {
+  0% {
+    translate: 0;
+  }
+  50% {
+    translate: 0 -8px;
+  }
+  100% {
+    translate: 0;
+  }
 }
 #navbar .logout {
   border: none;
@@ -498,7 +560,6 @@ img {
   cursor: pointer;
   -webkit-user-select: none;
      -moz-user-select: none;
-      -ms-user-select: none;
           user-select: none;
 }
 #navbar .nav-elementss {
@@ -508,7 +569,6 @@ img {
   gap: 35px;
   -webkit-user-select: none;
      -moz-user-select: none;
-      -ms-user-select: none;
           user-select: none;
   margin-top: 10px;
 }
@@ -549,7 +609,6 @@ img {
   border-radius: 50%;
   -webkit-user-select: none;
      -moz-user-select: none;
-      -ms-user-select: none;
           user-select: none;
 }
 #navbar .nav-icons .user-info .user {
@@ -558,7 +617,6 @@ img {
   font-weight: 600;
   -webkit-user-select: none;
      -moz-user-select: none;
-      -ms-user-select: none;
           user-select: none;
 }
 #navbar .nav-icons .flex {
@@ -573,7 +631,6 @@ img {
   cursor: pointer;
   -webkit-user-select: none;
      -moz-user-select: none;
-      -ms-user-select: none;
           user-select: none;
 }
 #navbar .nav-icons .flex .korzina {
@@ -582,7 +639,6 @@ img {
   cursor: pointer;
   -webkit-user-select: none;
      -moz-user-select: none;
-      -ms-user-select: none;
           user-select: none;
   position: relative;
 }
@@ -680,9 +736,9 @@ header img {
   text-decoration: none;
   background: transparent;
   transition: ease-out 0.5s;
-  border: 2px solid #000;
+  border: 1px solid #000;
   border-radius: 10em;
-  box-shadow: inset 0 0 0 0 blue;
+  box-shadow: inset 0 0 0 0 rgb(9, 28, 130);
   margin: 20px 0 10px 0;
   color: #000;
   font-size: 15px;
@@ -693,7 +749,7 @@ header img {
 }
 .container-login .button-submit:hover {
   color: white;
-  box-shadow: inset 0 -100px 0 0 rgb(16, 21, 36);
+  box-shadow: inset 0 -100px 0 0 rgb(19, 148, 19);
 }
 .container-login .button-submit:active {
   transform: scale(0.9);
@@ -717,13 +773,6 @@ header img {
   color: #fff;
   transition: 0.3s;
 }
-.container-login .custum-file-upload[type=file]::-webkit-file-upload-button {
-  background-color: transparent;
-  border: 1px solid;
-  border-radius: 10px;
-  background-color: #dedede;
-  color: #000;
-}
 .container-login .custum-file-upload[type=file]::file-selector-button {
   background-color: transparent;
   border: 1px solid;
@@ -744,6 +793,7 @@ header img {
 
 .products {
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
   margin-top: 60px;
@@ -759,6 +809,15 @@ header img {
   text-align: center;
   margin-bottom: 20px;
 }
+.products .select {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 45px;
+  margin-bottom: 40px;
+  position: relative;
+  right: 350px;
+}
 .products .search__input {
   font-family: inherit;
   font-size: inherit;
@@ -767,7 +826,6 @@ header img {
   color: #090909;
   padding: 0.7rem 1rem;
   border-radius: 30px;
-  width: -webkit-max-content;
   width: -moz-max-content;
   width: max-content;
   transition: all ease-in-out 0.5s;
@@ -1010,35 +1068,19 @@ header img {
 }
 
 .cart-button.clicked .fa-shopping-cart {
-  -webkit-animation: cart 1.5s ease-in-out forwards;
-          animation: cart 1.5s ease-in-out forwards;
+  animation: cart 1.5s ease-in-out forwards;
 }
 
 .cart-button.clicked .fa-box {
-  -webkit-animation: box 1.5s ease-in-out forwards;
-          animation: box 1.5s ease-in-out forwards;
+  animation: box 1.5s ease-in-out forwards;
 }
 
 .cart-button.clicked span.add-to-cart {
-  -webkit-animation: txt1 1.5s ease-in-out forwards;
-          animation: txt1 1.5s ease-in-out forwards;
+  animation: txt1 1.5s ease-in-out forwards;
 }
 
 .cart-button.clicked span.added {
-  -webkit-animation: txt2 1.5s ease-in-out forwards;
-          animation: txt2 1.5s ease-in-out forwards;
-}
-
-@-webkit-keyframes cart {
-  0% {
-    left: -10%;
-  }
-  40%, 60% {
-    left: 50%;
-  }
-  100% {
-    left: 110%;
-  }
+  animation: txt2 1.5s ease-in-out forwards;
 }
 
 @keyframes cart {
@@ -1050,19 +1092,6 @@ header img {
   }
   100% {
     left: 110%;
-  }
-}
-@-webkit-keyframes box {
-  0%, 40% {
-    top: -20%;
-  }
-  60% {
-    top: 40%;
-    left: 52%;
-  }
-  100% {
-    top: 40%;
-    left: 112%;
   }
 }
 @keyframes box {
@@ -1078,28 +1107,12 @@ header img {
     left: 112%;
   }
 }
-@-webkit-keyframes txt1 {
-  0% {
-    opacity: 1;
-  }
-  20%, 100% {
-    opacity: 0;
-  }
-}
 @keyframes txt1 {
   0% {
     opacity: 1;
   }
   20%, 100% {
     opacity: 0;
-  }
-}
-@-webkit-keyframes txt2 {
-  0%, 80% {
-    opacity: 0;
-  }
-  100% {
-    opacity: 1;
   }
 }
 @keyframes txt2 {
@@ -1110,6 +1123,14 @@ header img {
     opacity: 1;
   }
 }
+.dropdown {
+  background-color: #212121;
+  border-radius: 10px;
+  transition: 0.3s;
+  position: relative;
+  bottom: 10px;
+}
+
 .cont {
   display: flex;
   flex-direction: column;
@@ -1193,4 +1214,4 @@ header img {
   transition-duration: 0.3s;
   transform: translateY(60%);
   transform: rotate(360deg);
-}
+}/*# sourceMappingURL=index.css.map */

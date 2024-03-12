@@ -1,5 +1,6 @@
 .products {
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
   margin-top: 60px;
@@ -13,6 +14,15 @@
     justify-content: space-between;
     text-align: center;
     margin-bottom: 20px;
+  }
+  .select {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 45px;
+    margin-bottom: 40px;
+    position: relative;
+    right: 350px;
   }
 
   .search__input {
@@ -211,120 +221,131 @@
     width: 100%;
   }
 }
-.pos-abs{ 
+.pos-abs {
   position: absolute;
   top: 50%;
   left: 50%;
   border: #000000;
   color: #000000;
 }
-.center{ 
+.center {
   display: flex;
   align-items: center;
   justify-content: center;
 }
 .cart-button {
-	position: relative;
-	padding: 10px;
-	width: 300px;
-	height: 60px;
-	border: 0;
-	border-radius: 10px;
-	background-color: #000000!important;
-	outline: none;
-	cursor: pointer;
-	color: #fff;
-	transition: .3s ease-in-out;
-	overflow: hidden;
+  position: relative;
+  padding: 10px;
+  width: 300px;
+  height: 60px;
+  border: 0;
+  border-radius: 10px;
+  background-color: #000000 !important;
+  outline: none;
+  cursor: pointer;
+  color: #fff;
+  transition: 0.3s ease-in-out;
+  overflow: hidden;
 }
 .cart-button:hover {
-	background-color: #000000;
+  background-color: #000000;
 }
 .cart-button:active {
-	transform: scale(.9);
+  transform: scale(0.9);
 }
 
 .cart-button .fa-shopping-cart {
-	position: absolute;
-	z-index: 2;
-	top: 50%;
-	left: -10%;
-	font-size: 2em;
-	transform: translate(-50%,-50%);
+  position: absolute;
+  z-index: 2;
+  top: 50%;
+  left: -10%;
+  font-size: 2em;
+  transform: translate(-50%, -50%);
 }
 .cart-button .fa-box {
-	position: absolute;
-	z-index: 3;
-	top: -20%;
-	left: 52%;
-	font-size: 1.2em;
-	transform: translate(-50%,-50%);
+  position: absolute;
+  z-index: 3;
+  top: -20%;
+  left: 52%;
+  font-size: 1.2em;
+  transform: translate(-50%, -50%);
 }
 .cart-button span {
-	position: absolute;
-	z-index: 3;
-	left: 50%;
-	top: 50%;
-	font-size: 1.2em;
-	color: #fff;
-	transform: translate(-50%,-50%);
+  position: absolute;
+  z-index: 3;
+  left: 50%;
+  top: 50%;
+  font-size: 1.2em;
+  color: #fff;
+  transform: translate(-50%, -50%);
 }
 .cart-button span.add-to-cart {
-	opacity: 1;
+  opacity: 1;
 }
 .cart-button span.added {
-	opacity: 0;
+  opacity: 0;
 }
 
 .cart-button.clicked .fa-shopping-cart {
-	animation: cart 1.5s ease-in-out forwards;
+  animation: cart 1.5s ease-in-out forwards;
 }
 .cart-button.clicked .fa-box {
-	animation: box 1.5s ease-in-out forwards;
+  animation: box 1.5s ease-in-out forwards;
 }
 .cart-button.clicked span.add-to-cart {
-	animation: txt1 1.5s ease-in-out forwards;
+  animation: txt1 1.5s ease-in-out forwards;
 }
 .cart-button.clicked span.added {
-	animation: txt2 1.5s ease-in-out forwards;
+  animation: txt2 1.5s ease-in-out forwards;
 }
 @keyframes cart {
-	0% {
-		left: -10%;
-	}
-	40%, 60% {
-		left: 50%;
-	}
-	100% {
-		left: 110%;
-	}
+  0% {
+    left: -10%;
+  }
+  40%,
+  60% {
+    left: 50%;
+  }
+  100% {
+    left: 110%;
+  }
 }
 @keyframes box {
-	0%, 40% {
-		top: -20%;
-	}
-	60% {
-		top: 40%;
-		left: 52%;
-	}
-	100% {
-		top: 40%;
-		left: 112%;
-	}
+  0%,
+  40% {
+    top: -20%;
+  }
+  60% {
+    top: 40%;
+    left: 52%;
+  }
+  100% {
+    top: 40%;
+    left: 112%;
+  }
 }
 @keyframes txt1 {
-	0% {
-		opacity: 1;
-	}
-	20%, 100% {
-		opacity: 0;
-	}
+  0% {
+    opacity: 1;
+  }
+  20%,
+  100% {
+    opacity: 0;
+  }
 }
 @keyframes txt2 {
-	0%, 80% {
-		opacity: 0;
-	}
-	100% {
-		opacity: 1;
-	}
+  0%,
+  80% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+.dropdown {
+  background-color: #212121;
+  border-radius: 10px;
+  transition: 0.3s;
+  position: relative;
+  bottom: 10px;
 }
