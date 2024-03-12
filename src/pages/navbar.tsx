@@ -97,7 +97,7 @@ export const Navbar: React.FC = () => {
                   <img src={user.avatar} alt="Avatar" className="avatar" />
                 )}
                 <span style={{ color: "black" }} className="user">
-                  {user.name}({isAdmin() && <span className="admin-text">ADMIN</span> || <span className="user-text">customer</span>})
+                  {user.name}{isAdmin() && <span className="admin-text"> "ADMIN"</span> || <span className="user-text"> "customer"</span>}
                 </span>
               </div>
               </Link>

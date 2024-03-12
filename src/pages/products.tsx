@@ -13,34 +13,48 @@ export const Products: React.FC = () => {
   const { user } = useAuth();
   const [searchValue, setSearchValue] = useState<string>("");
   const [products, setProducts] = useState<Product[]>([]);
+  const [categories, setCategories] = useState<string[]>([]);
+  const [selectedCategory, setSelectedCategory] = useState<string>("");
   const [toastProduct, setToastProduct] = useState<Product | null>(null);
   const [clickedButtons, setClickedButtons] = useState<string[]>([]);
 
-  const fetchProducts = async (searchQuery: string) => {
+  const fetchProducts = async (searchQuery: string, category: string) => {
     try {
-      if (searchQuery.trim() !== "") {
-        const response = await axios.get<{ products: Product[] }>(
-          `https://dummyjson.com/products/search?q=${searchQuery}`
-        );
-        setProducts(response.data.products);
-      } else {
-        const response = await axios.get<{ products: Product[] }>(
-          "https://dummyjson.com/products"
-        );
-        setProducts(response.data.products);
+      let url = `https://dummyjson.com/products`;
+      if (category.trim() !== "") {
+        url += `/category/${category}`;
+      } else if (searchQuery.trim() !== "") {
+        url += `/search?q=${searchQuery}`;
       }
+      const response = await axios.get<{ products: Product[] }>(url);
+      setProducts(response.data.products);
     } catch (error) {
       console.error("Error fetching products:", error);
       setProducts([]);
     }
   };
 
+  const fetchCategories = async () => {
+    try {
+      const response = await axios.get('https://dummyjson.com/products/categories');
+      setCategories(response.data);
+    } catch (error) {
+      console.error("Error fetching categories:", error);
+      setCategories([]);
+    }
+  }
+
   useEffect(() => {
-    fetchProducts(searchValue);
-  }, [searchValue]);
+    fetchProducts(searchValue, selectedCategory);
+    fetchCategories();
+  }, [searchValue, selectedCategory]);
 
   const handleSearchChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setSearchValue(e.target.value);
+  };
+
+  const handleCategoryChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
+    setSelectedCategory(e.target.value);
   };
 
   const handleAddToCart = (product: Product) => {
@@ -77,6 +91,17 @@ export const Products: React.FC = () => {
           Go Home
         </button>
       </Link>
+      <div className="dropdown">
+        <button className="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+          {selectedCategory !== "" ? selectedCategory : "All Categories"}
+        </button>
+        <ul className="dropdown-menu">
+          <li><button className="dropdown-item" onClick={() => setSelectedCategory("")}>All Categories</button></li>
+          {categories.map((category, index) => (
+            <li key={index}><button className="dropdown-item" onClick={() => setSelectedCategory(category)}>{category}</button></li>
+          ))}
+        </ul>
+      </div>
       <div className="products">
         <div className="">
           <div className="center">
