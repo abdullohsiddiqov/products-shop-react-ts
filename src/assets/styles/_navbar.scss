@@ -122,11 +122,14 @@ header{
         object-fit: cover;
     }
 }
-.toast-container {
-    position: fixed;
-    bottom: 20px;
-    right: 20px;
-    z-index: 1050;
-    pointer-events: none;
-  }
-  
+
+.admin-text{ 
+    color: lightgreen;
+    font-size: 19px;
+    font-weight: 500;
+}
+.user-text{ 
+    color: gray;
+    font-size: 19px;
+    font-weight: 500;
+}

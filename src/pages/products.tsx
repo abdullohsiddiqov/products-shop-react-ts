@@ -4,6 +4,7 @@ import { Product } from "../services/types/types";
 import { Link } from "react-router-dom";
 import { useCartsContext } from "../contexts/cart/useCartsContext";
 import "bootstrap/dist/css/bootstrap.min.css";
+import '@fortawesome/fontawesome-free/css/all.css';
 import { Toast } from 'bootstrap';
 import { useAuth } from "../contexts/auth/useAuthContext";
 
@@ -13,6 +14,7 @@ export const Products: React.FC = () => {
   const [searchValue, setSearchValue] = useState<string>("");
   const [products, setProducts] = useState<Product[]>([]);
   const [toastProduct, setToastProduct] = useState<Product | null>(null);
+  const [clickedButtons, setClickedButtons] = useState<string[]>([]);
 
   const fetchProducts = async (searchQuery: string) => {
     try {
@@ -50,7 +52,6 @@ export const Products: React.FC = () => {
     }
   };
   
-
   useEffect(() => {
     if (toastProduct) {
       const toastElement = document.querySelector('.toast');
@@ -60,6 +61,14 @@ export const Products: React.FC = () => {
       }
     }
   }, [toastProduct]);
+
+  const handleCartButtonClick = (productId: string) => {
+    if (!clickedButtons.includes(productId)) {
+      setClickedButtons([...clickedButtons, productId]);
+    }
+  };
+
+  const addedStatus = JSON.parse(localStorage.getItem('addedStatus') || '{}');
 
   return (
     <div className="">
@@ -127,18 +136,18 @@ export const Products: React.FC = () => {
                     <p>Rating: {product.rating}</p>
                   </Link>
                   <li className="end">
-                    <button
-                      className="c-button"
-                      onClick={() => handleAddToCart(product)}
-                    >
-                      <span className="c-main">
-                        <span className="c-ico">
-                          <span className="c-blur"></span>{" "}
-                          <span className="ico-text">+</span>
-                        </span>
-                        Add to Cart
-                      </span>
-                    </button>
+                  <button 
+                    className={`cart-button ${clickedButtons.includes(String(product.id)) ? 'clicked' : ''}`} 
+                    onClick={() => { 
+                      handleAddToCart(product); 
+                      handleCartButtonClick(String(product.id)); 
+                    }}
+                  >
+                    <span className="add-to-cart">{addedStatus[product.id] ? 'Added' : 'Add to cart'}</span>
+                    <span className="added">Added</span>
+                    <i className="fas fa-shopping-cart"></i>
+                    <i className="fas fa-box"></i>
+                  </button>
                   </li>
                 </li>
               ))

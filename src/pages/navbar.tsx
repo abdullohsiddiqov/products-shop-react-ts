@@ -10,7 +10,7 @@ import iosIcon from "../assets/images/iOS.webp";
 import samsungIcon from "../assets/images/samsung.webp";
 
 export const Navbar: React.FC = () => {
-  const { user, logout } = useAuth();
+  const { user, logout, isAdmin } = useAuth();
   const { cartItems } = useCartsContext();
   const cartItemCount = cartItems.reduce((total, item) => total + item.quantity, 0);
   const [activeSlide, setActiveSlide] = useState(0);
@@ -97,7 +97,7 @@ export const Navbar: React.FC = () => {
                   <img src={user.avatar} alt="Avatar" className="avatar" />
                 )}
                 <span style={{ color: "black" }} className="user">
-                  {user.name}
+                  {user.name}({isAdmin() && <span className="admin-text">ADMIN</span> || <span className="user-text">USER</span>})
                 </span>
               </div>
               </Link>

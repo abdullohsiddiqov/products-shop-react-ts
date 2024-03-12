@@ -3,9 +3,9 @@ import { useNavigate } from 'react-router-dom';
 import { http } from '../../services/api/http';
 import { UserSignIn } from '../../services/types/types';
 
-
 interface User {
   name: string;
+  email: string;
   password?: string;
   avatar?: string;
 }
@@ -15,6 +15,7 @@ interface AuthContextType {
   login: (data: UserSignIn) => Promise<void>;
   logout: () => void;
   isLoggedIn: () => boolean;
+  isAdmin: () => boolean;
 }
 
 const AuthContext = createContext<AuthContextType | undefined>(undefined);
@@ -57,8 +58,16 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
     return !!user;
   };
 
+  const isAdmin = () => {
+    return (
+      user?.name === 'gangdramma' &&
+      user?.email === 'gangdramma@gmail.com' &&
+      user?.password === 'root1234'
+    );
+  };
+
   return (
-    <AuthContext.Provider value={{ user, logout, isLoggedIn, login }}>
+    <AuthContext.Provider value={{ user, logout, isLoggedIn, login, isAdmin }}>
       {children}
     </AuthContext.Provider>
   );
