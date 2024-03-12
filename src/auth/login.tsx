@@ -4,7 +4,6 @@ import { useAuth } from "../contexts/auth/useAuthContext";
 import { signIn } from "../services/api/api";
 import { UserSignIn } from "../services/types/types";
 import { Link } from "react-router-dom";
-import "../assets/styles/login.css";
 interface LoginProps {
   language?: string;
 }

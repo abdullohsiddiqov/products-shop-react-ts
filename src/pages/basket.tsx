@@ -23,7 +23,7 @@ export const Basket: React.FC = () => {
       </Link>
       {cartItems.length === 0 ? (
         <div className="flex2">
-          <p className="error">Your basket is empty.</p>
+          <p>Your basket is empty.</p>
         </div>
       ) : (
        <>

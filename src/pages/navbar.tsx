@@ -7,8 +7,7 @@ import favoriteIcon from "../assets/images/favorites.svg";
 import korzinaIcon from "../assets/images/korzina.svg";
 import clothesIcon from "../assets/images/clothes.jpg";
 import iosIcon from "../assets/images/iOS.webp";
-import loginIcon from "../assets/images/user.svg"
-import samsungIcon from "../assets/images/samsung.webp"
+import samsungIcon from "../assets/images/samsung.webp";
 
 export const Navbar: React.FC = () => {
   const { user, logout, isAdmin } = useAuth();
@@ -98,7 +97,7 @@ export const Navbar: React.FC = () => {
                   <img src={user.avatar} alt="Avatar" className="avatar" />
                 )}
                 <span style={{ color: "black" }} className="user">
-                  {user.name}({isAdmin() && <span className="admin-text">ADMIN</span> || <span className="user-text">USER</span>})
+                  {user.name}({isAdmin() && <span className="admin-text">ADMIN</span> || <span className="user-text">customer</span>})
                 </span>
               </div>
               </Link>
@@ -110,13 +109,8 @@ export const Navbar: React.FC = () => {
             <>
               <li className="auth">
                 <Link to="/auth/sign-up" className="txt">
-                  <button className="login-button">
-                    <div className="svg-wrapper-1">
-                      <div className="svg-wrapper">
-                        <img  className="svg-wrapper" src={loginIcon} alt="" />
-                      </div>
-                    </div>
-                    <div className="text">Login</div>
+                  <button type="button" className="btn btn-primary">
+                    Sign Up
                   </button>
                 </Link>
               </li>
