@@ -2,9 +2,9 @@
     #navbar{ 
         gap: 70px;
     }
-    .products-grid{ 
-        grid-template-columns: repeat(2, 350px)!important;
-    }
+    // .products-grid{ 
+    //     grid-template-columns: repeat(2, 350px)!important;
+    // }
 }
 @media screen and (max-width: 915px) {  
     #navbar{ 
@@ -18,6 +18,8 @@
     #navbar{ 
         flex-flow: column;
         gap: 20px;
+        justify-content: center;
+        margin-right: 20px;
     }
 }
 

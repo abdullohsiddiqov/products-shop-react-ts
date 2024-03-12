@@ -313,6 +313,8 @@ template {
   margin: 0;
   padding: 0;
   font-family: "Poppins";
+  -o-object-fit: cover;
+     object-fit: cover;
 }
 
 html {
@@ -474,17 +476,6 @@ img {
   padding-bottom: 20px;
   gap: 150px;
   background-color: white;
-  /* credits to uiverse.io/profile/eirikvold */
-}
-#navbar .iconn {
-  font-size: 50px;
-  color: black;
-  font-weight: 500;
-  -webkit-user-select: none;
-     -moz-user-select: none;
-          user-select: none;
-  cursor: pointer;
-  text-decoration: none;
 }
 #navbar .login-button {
   font-family: inherit;
@@ -535,19 +526,15 @@ img {
   margin-right: 0.5em;
   animation: bounce 1.3s ease-in-out;
 }
-#navbar .text {
-  overflow: hidden;
-}
-@keyframes bounce {
-  0% {
-    translate: 0;
-  }
-  50% {
-    translate: 0 -8px;
-  }
-  100% {
-    translate: 0;
-  }
+#navbar .iconn {
+  font-size: 50px;
+  color: black;
+  font-weight: 500;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+          user-select: none;
+  cursor: pointer;
+  text-decoration: none;
 }
 #navbar .logout {
   border: none;
@@ -667,9 +654,6 @@ header img {
   #navbar {
     gap: 70px;
   }
-  .products-grid {
-    grid-template-columns: repeat(2, 350px) !important;
-  }
 }
 @media screen and (max-width: 915px) {
   #navbar .nav-elementss {
@@ -680,6 +664,8 @@ header img {
   #navbar {
     flex-flow: column;
     gap: 20px;
+    justify-content: center;
+    margin-right: 20px;
   }
 }
 @media screen and (max-width: 800px) {
@@ -784,6 +770,10 @@ header img {
   text-align: center;
   margin-bottom: 20px;
 }
+.products .page-name {
+  position: relative;
+  left: 25px;
+}
 .products .search__input {
   font-family: inherit;
   font-size: inherit;
@@ -795,7 +785,7 @@ header img {
   width: -moz-max-content;
   width: max-content;
   transition: all ease-in-out 0.5s;
-  margin-right: -2rem;
+  margin-right: -1rem;
 }
 .products .search__input:hover,
 .products .search__input:focus {
@@ -836,6 +826,8 @@ header img {
   display: grid;
   grid-template-columns: repeat(3, 350px);
   gap: 50px;
+  justify-content: center;
+  place-items: center;
 }
 .products .products-grid .brdr {
   border-radius: 10px;
@@ -935,6 +927,8 @@ header img {
   box-shadow: 4px 8px 19px -3px rgba(0, 0, 0, 0.27);
   transition: all 250ms;
   overflow: hidden;
+  margin-left: 50px;
+  margin-top: 50px;
 }
 .button-back::before {
   content: "";
@@ -956,28 +950,33 @@ header img {
   width: 100%;
 }
 
-.container {
+.pos-abs {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  border: #000000;
+  color: #000000;
+}
+
+.center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.cont {
   display: flex;
   flex-direction: column;
-  align-items: start;
-  justify-content: start;
+  align-items: center;
+  justify-content: center;
 }
-.container .container-grid {
+.cont .container-grid {
   display: grid;
   grid-template-columns: repeat(3, 350px);
   gap: 50px;
   margin-top: 35px;
 }
-.container .error {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  position: relative;
-  left: 500px;
-  bottom: 80px;
-  font-size: 24px;
-}
-.container .brdr-del {
+.cont .brdr-del {
   border-radius: 10px;
   border: 1px solid lightgrey;
   padding: 10px;
@@ -985,10 +984,10 @@ header img {
   box-shadow: 20px 20px 60px #bebebe, -20px -20px 60px #ffffff;
   transition: 0.5s;
 }
-.container .brdr-del:hover {
+.cont .brdr-del:hover {
   transform: scale(0.95);
 }
-.container img {
+.cont img {
   width: 330px;
   height: 250px;
   -o-object-fit: cover;

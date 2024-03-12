@@ -6,15 +6,6 @@
   padding-bottom: 20px;
   gap: 150px;
   background-color: white;
-  .iconn {
-    font-size: 50px;
-    color: black;
-    font-weight: 500;
-    user-select: none;
-    cursor: pointer;
-    text-decoration: none;
-  }
-  /* credits to uiverse.io/profile/eirikvold */
   .login-button {
     font-family: inherit;
     font-size: 16px;
@@ -76,24 +67,14 @@
     animation: bounce 1.3s ease-in-out;
   }
 
-  .text {
-    overflow: hidden;
+  .iconn {
+    font-size: 50px;
+    color: black;
+    font-weight: 500;
+    user-select: none;
+    cursor: pointer;
+    text-decoration: none;
   }
-
-  @keyframes bounce {
-    0% {
-      translate: 0;
-    }
-
-    50% {
-      translate: 0 -8px;
-    }
-
-    100% {
-      translate: 0;
-    }
-  }
-
   .logout {
     border: none;
     background-color: transparent;
@@ -104,7 +85,6 @@
       user-select: none;
     }
   }
-
   .nav-elementss {
     display: flex;
     align-items: center;

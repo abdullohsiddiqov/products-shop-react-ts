@@ -1,35 +1,55 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { useAuth } from "../contexts/auth/useAuthContext";
 import { useCartsContext } from "../contexts/cart/useCartsContext";
 import { Link } from "react-router-dom";
 import logoutIcon from "../assets/images/logout.svg";
 import favoriteIcon from "../assets/images/favorites.svg";
 import korzinaIcon from "../assets/images/korzina.svg";
-import colorIcon from "../assets/images/color.jpg";
 import clothesIcon from "../assets/images/clothes.jpg";
-import recycleIcon from "../assets/images/recycle.jpg";
-import LoginIcon from "../assets/images/user-plus-alt-1-svgrepo-com.svg";
+import iosIcon from "../assets/images/iOS.webp";
+import loginIcon from "../assets/images/user.svg"
+import samsungIcon from "../assets/images/samsung.webp"
 
 export const Navbar: React.FC = () => {
   const { user, logout } = useAuth();
   const { cartItems } = useCartsContext();
-  const cartItemCount = cartItems.reduce(
-    (total, item) => total + item.quantity,
-    0
-  );
+  const cartItemCount = cartItems.reduce((total, item) => total + item.quantity, 0);
   const [activeSlide, setActiveSlide] = useState(0);
+  const [opacity, setOpacity] = useState(1);
+
+  useEffect(() => {
+    const intervalId = setInterval(() => {
+      handleNextSlide();
+    }, 3000);
+
+    return () => clearInterval(intervalId);
+  }, [activeSlide]);
 
   const handleSlideChange = (index: number) => {
     setActiveSlide(index);
+    setOpacity(1);
   };
 
   const handlePrevSlide = () => {
     setActiveSlide(activeSlide === 0 ? 2 : activeSlide - 1);
+    setOpacity(1);
   };
 
   const handleNextSlide = () => {
     setActiveSlide(activeSlide === 2 ? 0 : activeSlide + 1);
+    setOpacity(1);
   };
+
+  useEffect(() => {
+    const opacityInterval = setInterval(() => {
+      if (opacity > 0) {
+        setOpacity(opacity - 0.05);
+      }
+    }, 100);
+  
+    return () => clearInterval(opacityInterval);
+  }, [opacity]);
+  
 
   return (
     <>
@@ -44,7 +64,7 @@ export const Navbar: React.FC = () => {
             <li>Products</li>
           </Link>
           <Link to="/page/about-us">
-            <li>About us</li>
+            <li>About</li>
           </Link>
           <Link to="/page/popular/list">
             <li>Popular</li>
@@ -72,6 +92,7 @@ export const Navbar: React.FC = () => {
           </div>
           {user ? (
             <>
+              <Link to="/user/profile" className="user-info">
               <div className="user-info">
                 {user.avatar && (
                   <img src={user.avatar} alt="Avatar" className="avatar" />
@@ -80,6 +101,7 @@ export const Navbar: React.FC = () => {
                   {user.name}
                 </span>
               </div>
+              </Link>
               <button onClick={logout} className="logout">
                 <img src={logoutIcon} alt="Logout" />
               </button>
@@ -91,7 +113,7 @@ export const Navbar: React.FC = () => {
                   <button className="login-button">
                     <div className="svg-wrapper-1">
                       <div className="svg-wrapper">
-                        <img  className="svg-wrapper" src={LoginIcon} alt="" />
+                        <img  className="svg-wrapper" src={loginIcon} alt="" />
                       </div>
                     </div>
                     <div className="text">Login</div>
@@ -142,14 +164,14 @@ export const Navbar: React.FC = () => {
               }
             >
               <img
-                src={colorIcon}
+                src={iosIcon}
                 className="d-block w-100"
                 alt="Colorful Icon"
               />
               <div className="carousel-caption d-none d-md-block">
-                <h5>First slide label</h5>
+                <h5>Iphone 15 pro max</h5>
                 <p>
-                  Some representative placeholder content for the first slide.
+                  The iPhone 15 Pro Max display has rounded corners that follow a beautiful curved design, and these corners are within a standard rectangle. When measured as a standard rectangular shape, the screen is 6.69 inches diagonally (actual viewable area is less).
                 </p>
               </div>
             </div>
@@ -164,9 +186,9 @@ export const Navbar: React.FC = () => {
                 alt="Clothes Icon"
               />
               <div className="carousel-caption d-none d-md-block">
-                <h5>Second slide label</h5>
+                <h5>Clothes</h5>
                 <p>
-                  Some representative placeholder content for the second slide.
+                  Lots of clothes for your taste and color.
                 </p>
               </div>
             </div>
@@ -176,14 +198,14 @@ export const Navbar: React.FC = () => {
               }
             >
               <img
-                src={recycleIcon}
+                src={samsungIcon}
                 className="d-block w-100"
                 alt="Recycle Icon"
               />
               <div className="carousel-caption d-none d-md-block">
-                <h5>Third slide label</h5>
+                <h5>Galaxy S24+ </h5>
                 <p>
-                  Some representative placeholder content for the third slide.
+                  Accelerometer, Barometer, Fingerprint Sensor, Gyro Sensor, Geomagnetic Sensor, Hall Sensor, Light Sensor, Proximity Sensor
                 </p>
               </div>
             </div>

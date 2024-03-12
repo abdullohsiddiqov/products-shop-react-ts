@@ -1,23 +1,15 @@
-.container {
+.cont {
   display: flex;
   flex-direction: column;
-  align-items: start;
-  justify-content: start;
+  align-items: center;
+  justify-content: center;
   .container-grid {
     display: grid;
     grid-template-columns: repeat(3, 350px);
     gap: 50px;
     margin-top: 35px;
   }
-  .error {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    position: relative;
-    left: 500px;
-    bottom: 80px;
-    font-size: 24px;
-  }
+
   .brdr-del {
     border-radius: 10px;
     border: 1px solid lightgrey;
