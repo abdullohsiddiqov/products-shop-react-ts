@@ -1214,4 +1214,41 @@ header img {
   transition-duration: 0.3s;
   transform: translateY(60%);
   transform: rotate(360deg);
+}
+
+.product-details {
+  padding: 20px;
+}
+.product-details h1 {
+  margin-bottom: 20px;
+}
+.product-details .image-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+.product-details .image-container .image-item {
+  flex: 1;
+  border: 1px solid #ccc;
+  cursor: pointer;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+.product-details .image-container .image-item.big {
+  flex: 2;
+  height: 400px; /* Adjust height as needed */
+}
+.product-details .image-container .image-item.small {
+  flex: 1;
+  height: 150px;
+}
+.product-details .image-container .image-item.active {
+  border-color: #007bff;
+  box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+}
+.product-details .product-info {
+  padding-left: 20px;
+}
+.product-details .product-info p {
+  margin-bottom: 10px;
 }/*# sourceMappingURL=index.css.map */

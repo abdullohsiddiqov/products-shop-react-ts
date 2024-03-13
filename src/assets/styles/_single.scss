@@ -1,0 +1,42 @@
+.product-details {
+  padding: 20px;
+
+  h1 {
+    margin-bottom: 20px;
+  }
+
+  .image-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+
+    .image-item {
+      flex: 1;
+      border: 1px solid #ccc;
+      cursor: pointer;
+      object-fit: cover;
+      &.big {
+        flex: 2;
+        height: 400px; /* Adjust height as needed */
+      }
+
+      &.small {
+        flex: 1;
+        height: 150px;
+      }
+
+      &.active {
+        border-color: #007bff;
+        box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+      }
+    }
+  }
+
+  .product-info {
+    padding-left: 20px;
+
+    p {
+      margin-bottom: 10px;
+    }
+  }
+}
