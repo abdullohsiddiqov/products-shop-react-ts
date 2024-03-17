@@ -144,7 +144,7 @@ export const Login: React.FC<LoginProps> = ({ language }) => {
                 </div>
               </div>
               <div className="center">
-              <button type="submit" className="button-submit" disabled={loading}  style={{marginBottom: "20px"}}>
+              <button type="submit" className="btn btn-success" disabled={loading}  style={{marginBottom: "20px"}}>
               {loading ? (
                   <div className="spinner-border" role="status">
                     <span className="sr-only"></span>

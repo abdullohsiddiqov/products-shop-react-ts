@@ -55,10 +55,6 @@ export const Products: React.FC = () => {
     setSearchValue(e.target.value);
   };
 
-  const handleCategoryChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
-    setSelectedCategory(e.target.value);
-  };
-
   const handleAddToCart = (product: Product) => {
     const isProductInCart = cartItems.some(
       (item) => item.product.id === product.id
